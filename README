@@ -1,0 +1,99 @@
+aidentd - The Afghan Ident Daemon (README based on original for nullidentd)
+--------------------------------------------------------------------------
+
+Version 1.0
+Copyright 2001 Afghan Hound <afghan-ident@afghanhound.org.uk>
+
+First public release - No further changes are likely except for code
+simplification, portability fixes or adding new Pokemon.
+
+What
+----
+
+aidentd is intended to be a total joke of an ident server, based on
+the much cleaner ( and better) nullident by Brian Young <bayoung@acm.org>.
+
+The program implements the auth protocol from RFC 1413.  This protocol is
+used to identify active TCP connections.  It returns a fake response for 
+any request - consisting of a random OS from RFC1340 and a random
+userid from the (current) list of active Pokemon. 
+
+The auth port is tcp 113.
+
+See the original nullidentd readme (README.null) for philosophical
+issues and slightly more detail.
+
+
+Goals
+-----
+
+It seemed like a good idea at the time. But many things do after lots
+of whisky. It's probably fortunate that RFC1413 doesn't allow carriage
+returns, or aidentd would probably be returning ASCII art Snoopy's.
+
+It might just cheer up some depressed mail/ftp/etc server admin perusing 
+their logs, or it might drive them over the edge: who knows?
+
+Installation (modified from nullidentd)
+---------------------------------------
+
+Build the program by simply typing 'make'.  Edit the makefile if it's
+required.  There is a 'make install' rule, but you may want to edit the
+makefile to set the installation directory.
+
+aidentd has been built and tested on a Linux 2.2 system.  Portability
+fixes are welcomed.
+
+aidentd must be run from inetd.  The following line in inetd.conf should
+do the job:
+
+auth   stream  tcp     nowait    nobody    /usr/local/sbin/aidentd aidentd
+
+ - or -
+
+auth   stream  tcp     nowait    nobody   /usr/sbin/tcpd aidentd
+
+if you've installed aidentd in /usr/sbin and want to use
+hosts.allow/deny.
+
+Gotta Catch 'Em All
+-------------------
+
+Pokemon is (are?) a trademark of Nintendo. The various OS names are 
+probably trademarks of whoever owns them.
+
+Afghan Hound : 	afghan@afghanhound.org.uk
+               	http://www.afghanhound.org.uk/
+		http://www.uklinux.afghanhound.net/ - for the office
+		Quake statistics page.
+	
+                  ***Afghan Hound Software***
+	
+                      M" " " " " " " " "o"
+                     oo      "       " "o
+                     "o" " "   " " " " M
+              o" " " " " " " " " " " " "
+             oo" " " "o"   "   " "o" "oo
+            o" " "   "o" " " " " "   " "o o
+           o     " "  o"  o" " "  oM " " "oMo
+          M" " "oMoMo  "o" " " " " "oM  o"o"
+          o"  oMo"oMo"o"oMoMoM "   " "o" "oM
+          o" "oMo" "oMo"MMoMMMo"o"o"o"o" "o"
+         Mo"  oMoMo"oM"oo""" "oMo"o"o"o"o oM
+         M "oMoM"  "     Mo oM Mo"o"o"o"o"o""
+         Mo"oMo"           ""  Mo"o"oMoMo"oM
+         MoM                    o"o"oMMMo"o"
+       o ""                     o"o" ""Mo"oM
+    oM                          o"o"oMM"o"o"
+    MM              oooMM" o    o"o"o"MMo"o"
+    "M          ooo"""     MM    "o"o"o"o"o"M
+     "Mo  oooMMM           M     "o" "o"o"o"o
+      ""MMMMoMoM                 " "o"o"o"o"o
+          MMMMM"                 "oM "MMo"o"o
+          oMMM"                  MoMoMoMoMoM"
+           "                         "
+
+          ***Delivering pointless software since 1999***
+
+
+

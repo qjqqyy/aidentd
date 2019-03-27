@@ -1,0 +1,40 @@
+aidentd
+----------
+
+Copyright 2001 Afghan Hound <afghan-ident@afghanhound.org.uk>
+
+Version 1.0
+-----------
+
+ - Initial, (and probably final) release.
+
+
+
+Original nullidentd changelog:
+
+
+nullidentd
+----------
+
+Copyright 1999 Brian Young <bayoung@acm.org>
+
+Version 1.0
+-----------
+
+- no code changes
+- updated README
+
+Version 0.9.1
+-------------
+
+- send \r\n instead of \n (as per RFC1413)
+- use snprintf instead of sprintf
+    - no security hole, but it's just wrong to use sprintf in a daemon
+- use a session timeout instead of idle timeouts
+    - makes more sense for such a small protocol
+
+Version 0.9
+-----------
+
+- first public release
+
